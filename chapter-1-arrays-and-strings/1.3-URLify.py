@@ -21,15 +21,23 @@ def urlify(string):
             string_part = string[0:space_list[i]]
             
             string_final = string_final + string_part + '%20' + string[space_list[i]-1:space_list[i+1]]
+            
+            print(string_final)
+            
+            break
         
         elif i == len(space_list)-1:
             string_part = string[space_list[i]-1:len(string)]
             
             string_final = string_final + '%20' + string_part
             
+            print(string_final)
+            
         else:
-            string_part = string[space_list[i]-1:space_list[i+1]]
+            string_part = string[space_list[i-1]+1:space_list[i]]
             
             string_final = string_final + '%20' + string_part
+            
+            print(string_final)
     
     print(string_final)
