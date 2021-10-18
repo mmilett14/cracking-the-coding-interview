@@ -1,24 +1,28 @@
 def palindrome_permutation(string):
-     
-    if len(string) % 2 == 0:
-        return -1
+    
+    string = string.lower().replace(" " , "")
     
     letter_counter = {}
     
     odd_counter = 0
     
-    for i in range(0, len(string)):
+    for char in string:
         
-        if string[i] not in letter_counter:
-            letter_counter[string[i]] = 1
-            odd_counter += 1
-            
+        if char not in letter_counter:
+            letter_counter[char] = 1
+        
         else:
-            letter_counter[string[i]] += 1
-            odd_counter -= 1
+            letter_counter[char] += 1
             
+            
+        if letter_counter[char] % 2 == 1:
+            odd_counter += 1
+    
+        else:
+            odd_counter -=1 
+    
     if odd_counter > 1:
-        return -1
+        return False
     
     else:
-        return 0
+        return True
